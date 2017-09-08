@@ -1,0 +1,22 @@
+{
+  "name": "nypl-services",
+  "description": "NYPL Services Package",
+  "require": {
+    "nypl/microservice-starter": "~1.0",
+    "firebase/php-jwt": "4.0.0",
+    "cap60552/php-sip2": "1.0.0"
+  },
+  "require-dev": {
+  },
+  "autoload": {
+    "psr-4": {
+      "NYPL\\Services\\": [ "src/" ]
+    }
+  },
+  "scripts": {
+    "post-update-cmd": [
+      "php -r \"copy('vendor/nypl/microservice-starter/scripts/index.js', 'index.js');\"",
+      "php -r \"copy('vendor/nypl/microservice-starter/scripts/parser.js', 'parser.js');\""
+    ]
+  }
+}

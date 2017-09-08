@@ -1,0 +1,19 @@
+  {
+  "name": "RecapService",
+  "version": "0.1.0",
+  "description": "Lambda for the NYPL ReCAP Service",
+  "main": "index.js",
+  "scripts": {
+    "deploy-qa": "node-lambda deploy -n serviceGeneral -f config/var_qa.env -S config/event_sources_qa.json -b subnet-f4fe56af -g sg-1d544067",
+    "deploy-production": "node-lambda deploy -e production -f config/var_production.env -S config/event_sources_production.json -o 'arn:aws:iam::946183545209:role/lambda-full-access' -b subnet-5deecd15,subnet-59bcdd03 -g sg-116eeb60 -P nypl-digital-dev",
+    "test": "node-lambda run -j tests/events/recap-bib.json -x tests/events/context.json"
+  },
+  "repository": {
+  },
+  "keywords": [
+  ],
+  "dependencies": {
+  },
+  "devDependencies": {
+  }
+}
